@@ -1,0 +1,15 @@
+go mod init <name>
+go get <package>
+go mod tidy
+go list -m all
+go list -m -versions <package>
+go test
+
+git add -A
+git commit -m ""
+git tag  <tag name>
+git tag
+git push --tags 
+
+go env -w GOPRIVATE=github.com/repoURL/private-repo
+go env -w GOPRIVATE=github.com/<OrgNameHere>/*

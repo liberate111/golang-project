@@ -1,0 +1,90 @@
+### 001 git
+
+## Git essentials
+
+# Understanding ssh encryption
+- add an ssh public key to github -> can use SSH 
+
+https://docs.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh
+
+Generating a new SSH key
+$ ssh-keygen -t ed25519 -C "your_email@example.com"
+
+# Creating our github repo
+# Adding a collaborator to github
+# Cloning a public project
+# Forking a public project
+When you fork a project, you make a copy of someone else’s repo and it gets put under your account. Here is how you fork a public project, and submit a pull request from the master branch
+
+
+## Git branches in action
+
+# Working with merge conflicts
+
+# Creating a branch
+Commands used in video
+show branches                       $ git branch
+all branches                        $ git branch -a
+create a new branch                 $ git checkout -b <branch name>
+before creating a branch, get your current state of the remote repository
+$ git pull
+when you create a branch it’s created off of whatever branch you’re already on
+
+# Working with branches
+checkout out a branch from master   $ git checkout <branch name>
+
+# Merging branches
+- on github
+- on terminal
+get onto the branch you want to merge INTO, then PULL, then merge
+merge a branch                $ git merge <branch name>
+
+# Deleting branches
+It is always a good idea to make things current before you work on branches. Do this with a GIT PULL. Once you have done that, switch to the master branch, then delete whatever branches you no longer want. Make sure you have merged any changes you want from a branch before you delete it.
+delete a branch                   $ git branch -d <branch name>
+delete a remote branch 
+- delete a branch in github
+- delete a branch on local        $ git remote prune origin
+
+# Workflow summary
+Prefixing branches with an issue number from github is a useful practice.
+create branch                       git checkout -b <branch name>
+see branches                        git branch
+see all branches                    git branch -a
+work on a branch                    git checkout <branch name>
+see status of branch                git status
+stage files                         git add -A
+see staged files                    git status
+commit files                        git commit -m <some message>
+switch back to master branch        git checkout master
+merge your branch                   git merge <branch name>
+push your code to remote repo       git push [origin master]
+delete your branch                  git branch -d <branch name>
+clean up cache                      git remote prune origin
+
+
+
+## Exploring git rebase
+- when you forked repo and repo that you forked move forward
+- so your forked repo and your clone repo doesn't update
+$ git remote
+$ git remote show origin
+$ git remote add upstream <ssh url>
+// upstream is the name whatever = <upstream>
+
+$ git fetch upstream
+$ git checkout master
+    confirm with 
+        $ git branch -a
+$ git pull
+    two ways to pull from FORKED repo
+        $ git rebase upstream/master
+            modifies history
+            can cause issue if people have FORKED your FORK
+        $ git merge upstream/master
+            doesn’t modify history
+            safer if people have forked your fork
+
+now push to your FORKED repo on github - either the first or, if needed, the second
+$ git push
+$ git push -f origin master
