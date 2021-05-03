@@ -1,0 +1,5 @@
+Check url can be crawled :
+
+https://technicalseo.com/tools/robots-txt/
+
+https://www.reddit.com/robots.txt
